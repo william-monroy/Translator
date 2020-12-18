@@ -1,5 +1,7 @@
 # pip install ibm_watson wget
 
+import credentials as APICredentials
+
 from ibm_watson import SpeechToTextV1 # Libreria de Voz a Texto
 import json # Libreria para manejar JSON
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator # Libreria para identificacion
@@ -8,7 +10,7 @@ from pandas.io.json import json_normalize # Modulo de la libreria pandas para ma
 
 url_s2t = "https://stream.watsonplatform.net/speech-to-text/api" # URL conexion API
 
-iam_apikey_s2t = "kXg5FLdYOG7iCTr9Zk1z_030MN4lH5njPBJdaex2B0IS" # APIKEY
+iam_apikey_s2t = APICredentials.APIKey_SpeechtoText # APIKEY
 
 authenticator = IAMAuthenticator(iam_apikey_s2t) # Nuevo ojeto con la clave
 s2t = SpeechToTextV1(authenticator=authenticator) # Nuevo objeto de SpeechToText incluyendo la autenticacion
@@ -37,7 +39,7 @@ from ibm_watson import LanguageTranslatorV3
 
 url_lt='https://gateway.watsonplatform.net/language-translator/api'
 
-apikey_lt='1CTb7nGfTV3HJbsc-0D79st08ezuTCgYM1qRVJMkZcPz'
+apikey_lt=APICredentials.APIKey_LangTrans
 
 version_lt='2018-05-01'
 
